@@ -1,0 +1,10 @@
+// Static tasks configuration.
+//
+// Example:
+[
+  {
+    "label": "Run server",
+    "command": "yarn start",
+    "use_new_terminal": false
+  }
+]
