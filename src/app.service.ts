@@ -12,6 +12,8 @@ export class AppService {
   }
 
   getChallenge() {
-    return server.randomChallenge();
+    return {
+      challenge: server.randomChallenge(),
+      };
   }
 }

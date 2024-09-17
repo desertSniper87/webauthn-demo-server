@@ -17,7 +17,7 @@ export class AppController {
   }
 
   @Get('challenge')
-  challenge(): string {
+  challenge() {
     return this.appService.getChallenge();
   }
 }
