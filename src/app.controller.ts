@@ -1,6 +1,10 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { server } from '@passwordless-id/webauthn';
+import {
+  RegistrationJSON,
+  RegistrationResponseJSON,
+} from '@passwordless-id/webauthn/dist/esm/types';
 
 @Controller()
 export class AppController {
@@ -11,9 +15,10 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('register')
-  register(): void {
-    return this.appService.register();
+  @Post('register')
+  register(@Body() challengeResponse: RegistrationJSON) {
+    this.appService.postVerify(challengeResponse);
+    return;
   }
 
   @Get('challenge')

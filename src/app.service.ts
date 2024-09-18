@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { server } from '@passwordless-id/webauthn';
+import { RegistrationJSON } from '@passwordless-id/webauthn/dist/esm/types';
 
 @Injectable()
 export class AppService {
@@ -7,13 +8,17 @@ export class AppService {
     return 'Hello World!';
   }
 
-  register() {
+  postVerify(challengeResponse: RegistrationJSON) {
+    server.verifyRegistration(challengeResponse, {
+      challenge: '',
+      origin: '',
+    });
     return;
   }
 
   getChallenge() {
     return {
       challenge: server.randomChallenge(),
-      };
+    };
   }
 }
