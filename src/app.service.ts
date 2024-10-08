@@ -23,9 +23,4 @@ export class AppService {
     };
   }
 
-  getChallengeV2() {
-    return {
-        challenge: randomBytes(64).toString('base64')
-    };
-  }
 }
