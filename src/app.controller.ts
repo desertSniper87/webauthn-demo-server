@@ -1,10 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { server } from '@passwordless-id/webauthn';
-import {
-  RegistrationJSON,
-  RegistrationResponseJSON,
-} from '@passwordless-id/webauthn/dist/esm/types';
+import { RegistrationJSON } from '@passwordless-id/webauthn/dist/esm/types';
 
 @Controller()
 export class AppController {

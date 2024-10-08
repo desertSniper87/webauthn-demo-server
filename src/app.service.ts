@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { server } from '@passwordless-id/webauthn';
 import { RegistrationJSON } from '@passwordless-id/webauthn/dist/esm/types';
+import { randomBytes } from 'crypto';
 
 @Injectable()
 export class AppService {
@@ -19,6 +20,12 @@ export class AppService {
   getChallenge() {
     return {
       challenge: server.randomChallenge(),
+    };
+  }
+
+  getChallengeV2() {
+    return {
+        challenge: randomBytes(64).toString('base64')
     };
   }
 }
