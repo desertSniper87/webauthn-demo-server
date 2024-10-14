@@ -8,8 +8,14 @@ export class QrCodeController {
   constructor(private readonly qrCodeService: QrCodeService) {}
 
   @Get('challenge')
-  challenge() {
-    return this.qrCodeService.getChallenge();
+  challenge(username: string) {
+    const challenge =  this.qrCodeService.getChallenge();
+
+    this.qrCodeService.create({
+      challenge: challenge.challenge
+    });
+
+    return challenge;
   }
 
 }

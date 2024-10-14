@@ -1,1 +1,3 @@
-export class CreateQrCodeDto {}
+export class CreateQrCodeDto {
+    readonly challenge: string;
+}
