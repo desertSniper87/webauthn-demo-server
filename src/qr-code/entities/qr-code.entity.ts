@@ -9,6 +9,8 @@ export class QrCode {
     @Column()
     challenge: string;
 
+    @Column()
+    username: string;
 
 
 }

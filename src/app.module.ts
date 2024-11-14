@@ -7,6 +7,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { User } from "./user/entities/user.entity";
 import { QrCode } from "./qr-code/entities/qr-code.entity";
 import { DataSource } from "typeorm";
+import { AuthModule } from './auth/auth.module';
 
 @Module({
     imports: [UserModule, QrCodeModule,
@@ -16,7 +17,8 @@ import { DataSource } from "typeorm";
             entities: [User, QrCode],
             synchronize: true,
             autoLoadEntities: true
-        })
+        }),
+        AuthModule,
     ],
     controllers: [AppController],
     providers: [AppService]

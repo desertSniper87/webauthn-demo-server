@@ -11,11 +11,16 @@ export class QrCodeController {
   challenge(username: string) {
     const challenge =  this.qrCodeService.getChallenge();
 
-    this.qrCodeService.create({
-      challenge: challenge.challenge
-    });
 
     return challenge;
+  }
+
+  @Post('register')
+  register(@Body() createQrCodeDto: CreateQrCodeDto) {
+      this.qrCodeService.create({
+        challenge: createQrCodeDto.challenge,
+        username: createQrCodeDto.username
+      });
   }
 
 }
